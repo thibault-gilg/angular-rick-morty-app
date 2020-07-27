@@ -1,1 +1,12 @@
-<p>character-list works!</p>
+<h1>Rick and Morty characters</h1>
+<div class="container">
+    <div class="card" *ngFor="let character of characters">
+        <h5 class="card-header"><a routerLink="/details/{{character.id}}">{{character.name}}</a></h5>
+        <div class="card-body">
+            <ul style="list-style-type:none">
+                <li>Gender: {{character.gender | lowercase}}</li>
+                <li>Status: {{character.status | lowercase}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

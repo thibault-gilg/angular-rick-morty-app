@@ -21,8 +21,8 @@ export class CharacterListComponent implements OnInit {
 
   getCharacters(): void {
     for (let i = 1; i <= 30; i++) {
-      this.characterService.getAllCharacters(i).subscribe(characters => {
-        characters['results'].forEach((element: Character) => this.characters.push(element));
+      this.characterService.getAllCharacters(i).subscribe(data => {
+        data['results'].forEach((element: Character) => this.characters.push(element));
         console.log(this.characters);
       });
     }

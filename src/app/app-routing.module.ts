@@ -6,7 +6,7 @@ import { CharacterDetailsComponent } from './character-details/character-details
 
 const routes: Routes = [
   {path: '', component: CharacterListComponent},
-  {path: 'detail/:id', component: CharacterDetailsComponent}
+  {path: 'details/:id', component: CharacterDetailsComponent}
 ];
 
 @NgModule({
