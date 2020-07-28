@@ -1,0 +1,21 @@
+.container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+table {
+    table-layout: auto;
+    border-collapse: collapse;
+    width: 75%;
+    margin-left: 3rem;
+}

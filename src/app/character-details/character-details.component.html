@@ -1,1 +1,42 @@
-<p>character-details works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-outline-primary" (click)="onGoBack()">Go back</button>
+        </div>
+        <div class="col">
+            <h1>{{character.name}}</h1>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <img src="{{character.image}}" alt="{{character.name}} picture">
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <th scope="row">Gender</th>
+                        <td>{{character.gender}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Status</th>
+                        <td>{{character.status}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Species</th>
+                        <td>{{character.species}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Type</th>
+                        <td>{{character.type}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Origin</th>
+                        <td>{{character.origin.name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
