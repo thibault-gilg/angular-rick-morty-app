@@ -1,12 +1,36 @@
-<h1>Rick and Morty characters</h1>
 <div class="container">
-    <div class="card" *ngFor="let character of characters">
-        <h5 class="card-header"><a routerLink="/details/{{character.id}}">{{character.name}}</a></h5>
-        <div class="card-body">
-            <ul style="list-style-type:none">
-                <li>Gender: {{character.gender | lowercase}}</li>
-                <li>Status: {{character.status | lowercase}}</li>
-            </ul>
+    <div class="row">
+        <img src="../../assets/Rick_and_Morty_logo.png" alt="Rick and Morty logo">
+    </div>
+    <div class="row">
+        <h1>Characters</h1>
+    </div>
+    <div class="row">
+        <p>Filter by:</p>
+        <select class="custom-select" #gend (change)="getCharacters(gend.value, status)">
+            <option selected>Gender</option>
+            <option value="female">female</option>
+            <option value="male">male</option>
+            <option value="genderless">genderless</option>
+            <option value="unknown">unknown</option>
+        </select>
+        <select class="custom-select" #stat (change)="getCharacters(gender, stat.value)">
+            <option selected>Status</option>
+            <option value="alive">alive</option>
+            <option value="dead">dead</option>
+            <option value="unknown">unknown</option>
+        </select>
+    </div>
+    <div class="characters">
+        <div class="card" *ngFor="let character of characters">
+            <!--Routing to character details when name is clicked-->
+            <h5 class="card-header"><a routerLink="/details/{{character.id}}">{{character.name}}</a></h5>
+            <div class="card-body">
+                <ul style="list-style-type:none">
+                    <li>Gender: {{character.gender | lowercase}}</li>
+                    <li>Status: {{character.status | lowercase}}</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

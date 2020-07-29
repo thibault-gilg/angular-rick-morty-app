@@ -1,9 +1,22 @@
-h1 {
-    text-align: center;
+.row {
     margin-top: 2rem;
+    display: flex;
+    justify-content: center;
 }
 
-.container {
+p {
+    font-size: 1.3rem;
+}
+
+select {
+    width: auto;
+    max-width: 6rem;
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+
+/*display 4 characters per row*/
+.characters {
     margin: 4rem auto;
     display: grid;
     grid-template-rows: auto;
@@ -19,9 +32,3 @@ h1 {
 ul{
     padding: 0rem;
 }
-
-/*
-.card :not(.card-body) :hover{
-    color: #607D8B;
-    background-color: #DDD;
-}*/

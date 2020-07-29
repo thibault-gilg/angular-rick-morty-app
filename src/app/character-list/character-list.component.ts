@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterService } from '../character.service';
 import { Character } from '../character';
-import { CharacterDetailsComponent } from '../character-details/character-details.component';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-character-list',
@@ -10,7 +10,10 @@ import { CharacterDetailsComponent } from '../character-details/character-detail
 })
 export class CharacterListComponent implements OnInit {
 
-  characters: Character[] = [];
+  public characters: Character[] = [];
+  public gender = '';
+  public status = '';
+  private next: string;
 
   constructor(private characterService: CharacterService) { }
 
@@ -18,12 +21,30 @@ export class CharacterListComponent implements OnInit {
     this.getCharacters();
   }
 
-  getCharacters(): void {
-    for (let i = 1; i <= 30; i++) {
-      this.characterService.getAllCharacters(i).subscribe(data => {
-        data['results'].forEach((elem: Character) => this.characters.push(elem));
-      });
+  /**
+   * Display characters whether there are filters or not
+   * @param gender
+   * @param status
+   */
+  getCharacters(gender?: string, status?: string): void {
+    if (gender && gender !== 'Gender') {
+      console.log(gender);
+      this.gender = gender;
     }
-  }
+    if (status && status !== 'Status') {
+      this.status = status;
+    }
+    this.characters = [];
+    this.characterService.getCharacters(this.gender, this.status).subscribe(data => {
+      data['results'].forEach((elem: Character) => this.characters.push(elem));
+      this.next = data['info'].next;
+    });
 
+    /*while (this.next) {
+      this.characterService.getNextCharacters(this.next).subscribe(data => {
+        data['results'].forEach((elem: Character) => this.characters.push(elem));
+        this.next = data['info'].next;
+      });
+    }*/
+  }
 }

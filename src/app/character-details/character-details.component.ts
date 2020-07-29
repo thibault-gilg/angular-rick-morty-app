@@ -21,11 +21,15 @@ export class CharacterDetailsComponent implements OnInit {
     this.getCharacter();
   }
 
+  //Go back button
   onGoBack(): void {
     this.location.back();
   }
-
+  /**
+   * Get one character details
+   */
   getCharacter(): void {
+    //retrieve user id in url
     const id = +this.route.snapshot.paramMap.get('id');
     this.characterService.getOneCharacter(id)
       .subscribe(character => this.character = character);

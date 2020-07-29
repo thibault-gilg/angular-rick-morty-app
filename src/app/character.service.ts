@@ -8,14 +8,34 @@ import { Character } from './character';
 })
 export class CharacterService {
 
-  private url = 'https://rickandmortyapi.com/api/character/';
+  private apiUrl = 'https://rickandmortyapi.com/api/character/';
   constructor(private http: HttpClient) { }
 
-  getAllCharacters(pageNumber: number): Observable<any[]> {
-    return this.http.get<any[]>(this.url + '?page=' + pageNumber);
+  /**
+   * Get request for a list of characters
+   * @param gender
+   * @param status
+   */
+  getCharacters(gender?: string, status?: string): Observable<any[]> {
+    const url = this.apiUrl + '?' + '&gender=' + gender + '&status=' + status;
+    console.log(url);
+    return this.http.get<any[]>(url);
   }
 
+  /**
+   * Get request to the next page
+   * @param url 
+   */
+  getNextCharacters(url: string): Observable<any[]> {
+    return this.http.get<any[]>(url);
+  }
+
+  /**
+   * Get request for a single character
+   * @param id 
+   */
   getOneCharacter(id: number): Observable<Character> {
-    return this.http.get<Character>(this.url + id);
+    console.log(this.apiUrl + id);
+    return this.http.get<Character>(this.apiUrl + id);
   }
 }
