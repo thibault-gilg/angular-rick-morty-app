@@ -21,7 +21,9 @@ export class CharacterDetailsComponent implements OnInit {
     this.getCharacter();
   }
 
-  //Go back button
+  /**
+   * Return to the main page
+   */
   onGoBack(): void {
     this.location.back();
   }

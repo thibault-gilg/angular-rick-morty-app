@@ -18,7 +18,6 @@ export class CharacterService {
    */
   getCharacters(gender?: string, status?: string): Observable<any[]> {
     const url = this.apiUrl + '?' + '&gender=' + gender + '&status=' + status;
-    console.log(url);
     return this.http.get<any[]>(url);
   }
 
@@ -35,7 +34,6 @@ export class CharacterService {
    * @param id 
    */
   getOneCharacter(id: number): Observable<Character> {
-    console.log(this.apiUrl + id);
     return this.http.get<Character>(this.apiUrl + id);
   }
 }

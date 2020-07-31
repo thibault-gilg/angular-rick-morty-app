@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterListComponent } from './character-list/character-list.component';
 import { CharacterDetailsComponent } from './character-details/character-details.component';
+import { CharacterService } from './character.service';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CharacterDetailsComponent } from './character-details/character-details
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    CharacterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
