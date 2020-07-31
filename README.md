@@ -1,8 +1,11 @@
 # RickMortyApp
 
-Rick and Morty characters Web application
+Rick and Morty Web application:
+- Display all characters
+- Filter by status and gender
+- Display character details when character clicked
 
-# Install Node Modules before starting the project
+## Install Node Modules before starting the project
 
 Run `npm install` in terminal of project directory
 
