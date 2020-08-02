@@ -20,7 +20,7 @@
             <option value="dead">dead</option>
             <option value="unknown">unknown</option>
         </select>
-        <button class="btn btn-danger" (click)="onClearFilters()">Clear filters</button>
+        <button class="btn btn-danger" (click)="onClearFilters()" *ngIf="status != '' || gender != ''">Clear filters</button>
     </div>
     <div class="characters">
         <div class="card" *ngFor="let character of characters">
